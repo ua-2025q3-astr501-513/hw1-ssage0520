@@ -89,6 +89,14 @@ def multibit_negative(A):
     """
     # TODO: implement the function here
 
+    n = len(A)
+    negative = [A[0]]
+    
+    for i in range(1,n):
+        negative.append(NOT(A[i]))
+
+    return negative
+
 # We are now ready to implement subtraction using multibit_adder() and
 # multibit_negative().
 
@@ -110,3 +118,9 @@ def multibit_subtractor(A, B):
 
     """
     # TODO: implement the function here
+
+    assert(len(A) == len(B))
+
+    Bneg = multibit_negative(B)
+    diff = multibit_adder(A, Bneg)
+    return diff
