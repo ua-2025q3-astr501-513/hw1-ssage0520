@@ -92,10 +92,17 @@ def multibit_negative(A):
     n = len(A)
     negative = [A[0]]
     
+    #Check if A is zero
+    if sum(A) == 0: return A
+
+    #Switch to two's complement by flipping all bits except the first
     for i in range(1,n):
         negative.append(NOT(A[i]))
 
     return negative
+
+testa = [0,0,0,0,0]
+print(multibit_negative(testa))
 
 # We are now ready to implement subtraction using multibit_adder() and
 # multibit_negative().
