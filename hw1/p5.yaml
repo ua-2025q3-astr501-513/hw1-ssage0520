@@ -48,10 +48,9 @@
 # "topic" must be one of the listed course topics.
 
 - topic: Numerical Integration of Functions
-  idea: Look at a 2D or 3D Ising model, solved using MCMC. Could also expand to 
-        a more complicated (hopefully more effective) method, something like HMC.
+  idea: Look at a 2D or 3D Ising model, solved using MCMC.
 
 - topic: ODE Integrators
   idea: Take a look at the stellar structure equations. Solve the relevant ODEs 
         (hydrostatic equilibrium, mass continuity, etc.) numerically to get values
-        of the tempreature, density, pressure, etc. of the star as a function of radius. 
+        of the temperature, density, pressure, etc. of the star as a function of radius. 

@@ -46,9 +46,26 @@ class CoupledOscillators:
 
         """
         # TODO: Construct the stiffness matrix K
+
+        # Get the number of oscillators
+        n = len(X0)
+
+        #Set up K. Eye is good for this kind of sparse diagonal matrix.
+        K = 2*k*np.eye(n) - k*np.eye(n, k=1) - k*np.eye(n,k=-1)
+
         # TODO: Solve the eigenvalue problem for K to find normal modes
+
+        evals, evectors = np.linalg.eig(K / m)
+
         # TODO: Store angular frequencies and eigenvectors
+
+        self.omega = np.sqrt(evals)
+        self.evectors = evectors
+
         # TODO: Compute initial modal amplitudes M0 (normal mode decomposition)
+
+        self.M0 = np.linalg.solve(evectors, X0)
+
 
     def __call__(self, t):
         """Calculate the displacements of the oscillators at time t.
@@ -61,6 +78,9 @@ class CoupledOscillators:
 
         """
         # TODO: Reconstruct the displacements from normal modes
+
+        Mt = self.M0 * np.cos(self.omega * t)
+        return self.evectors @ Mt
 
 
 if __name__ == "__main__":
