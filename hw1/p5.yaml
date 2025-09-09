@@ -38,11 +38,20 @@
 
 # TODO: Edit this sample idea.
 
-- topic: Numerical Linear Algebra
-  idea:  Develop a fast matrix multiplication algorithm to reduce
-         energy consumption during deep learning inference.
+- topic: ODE Integrators
+  idea:  Create a simple simulation tracking the motion of bodies in a solar system. 
+         Could, for example, be used to look at asteroids being caught in Lagrange points.
 
 # TODO: Add two more project ideas below, following the same format as
 # the example above.
 # Remember to ensure that each idea is distinct and concise, and each
 # "topic" must be one of the listed course topics.
+
+- topic: Numerical Integration of Functions
+  idea: Look at a 2D or 3D Ising model, solved using MCMC. Could also expand to 
+        a more complicated (hopefully more effective) method, something like HMC.
+
+- topic: ODE Integrators
+  idea: Take a look at the stellar structure equations. Solve the relevant ODEs 
+        (hydrostatic equilibrium, mass continuity, etc.) numerically to get values
+        of the tempreature, density, pressure, etc. of the star as a function of radius. 
