@@ -31,6 +31,8 @@
 # to overcome catastrophic cancellation.
 # Please make sure that you take care of all the special cases.
 
+import numpy as np
+
 def quadratic(a, b, c):
     """Numerically stable quadratic equation solver
 
@@ -65,3 +67,18 @@ def quadratic(a, b, c):
                 If there is no real root, x1 == x2 == None.
     """
     # TODO: implement the stable quadratic equation solver here
+
+    # Check for the case where there is no real root
+    disc = b*b - 4*a*c
+    if disc < 0: return None, None
+
+    # Get the first root
+    x1 = (-b - np.sign(b) * np.sqrt(disc)) / (2*a)
+
+    # Check for the case where there is only one root
+    if disc == 0: return x1, None
+
+    # Get the second root
+    x2 = (c / a) / x1
+    return np.min([x1, x2]), np.max([x1, x2])
+

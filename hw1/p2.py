@@ -89,6 +89,20 @@ def multibit_negative(A):
     """
     # TODO: implement the function here
 
+    n = len(A)
+    negative = []
+
+    #Switch to two's complement by flipping all bits except the first
+    for i in range(n):
+        negative.append(NOT(A[i]))
+
+    one = [0 for _ in range(n)]
+    one[0] = 1
+
+    negative = multibit_adder(one, negative)
+
+    return negative
+
 # We are now ready to implement subtraction using multibit_adder() and
 # multibit_negative().
 
@@ -110,3 +124,9 @@ def multibit_subtractor(A, B):
 
     """
     # TODO: implement the function here
+
+    assert(len(A) == len(B))
+
+    Bneg = multibit_negative(B)
+    diff = multibit_adder(A, Bneg)
+    return diff
